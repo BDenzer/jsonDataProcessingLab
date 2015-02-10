@@ -1,3 +1,11 @@
-/**
- * Created by ingr0071 on 2/10/15.
- */
+'use strict';
+
+angular.module('jsonDataProcessingLabApp')
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'app/admin/admin.html',
+        controller: 'AdminCtrl'
+      });
+  });

@@ -1,3 +1,15 @@
-/**
- * Created by ingr0071 on 2/10/15.
- */
+'use strict';
+
+angular.module('jsonDataProcessingLabApp')
+  .controller('AlphaCtrl', function ($scope, $http, socket) {
+    $scope.awesomeThings = [];
+
+    $http.get('/api/things').success(function(awesomeThings) {
+      $scope.awesomeThings = awesomeThings;
+      socket.syncUpdates('thing', $scope.awesomeThings);
+    });
+
+    $scope.$on('$destroy', function () {
+      socket.unsyncUpdates('thing');
+    });
+  });
