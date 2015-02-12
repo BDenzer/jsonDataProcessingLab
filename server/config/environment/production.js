@@ -40,6 +40,6 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://3601Lab:passwordToBeProvided@acrylic/softwareDev/?authSource=admin'
+    uri: 'mongodb://3601Lab:DevelopmentOfSoftware@acrylic/softwareDev/?authSource=admin'
   }
 };
