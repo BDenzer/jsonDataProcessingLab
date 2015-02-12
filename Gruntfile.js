@@ -1,4 +1,4 @@
-// Generated on 2015-02-10 using generator-angular-fullstack 2.0.13
+// Generated on 2015-02-12 using generator-angular-fullstack 2.0.13
 'use strict';
 
 module.exports = function (grunt) {
@@ -492,7 +492,7 @@ module.exports = function (grunt) {
           ]
         }
       }
-    }
+    },
   });
 
   // Used for delaying livereload until after server has restarted
