@@ -17,14 +17,15 @@ angular.module('jsonDataProcessingLabApp')
 
     $scope.sortByFullName = function() {
       var fullName =[];
-      fullName = StudentSchema.name;
+      fullName = Student.schema.name;
+      console.log(fullName);
       var result =[];
       result = fullName.sort();
+      console.log(result);
       return result;
     };
 
     var sortedFullNameList = $scope.sortByFullName();
-    $scope.sortedFullName= [
-      {name:sortedFullNameList}
-    ];
+    $scope.sortedFullName= [];
+    $scope.sortedFullName = sortedFullNameList;
   });
