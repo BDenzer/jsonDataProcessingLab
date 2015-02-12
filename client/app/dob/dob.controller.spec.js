@@ -25,8 +25,4 @@ describe('Controller: dobCtrl', function () {
   it('should pass', function(){
     expect(true).toEqual(true);
   })
-  it('should return a DOB', function(){
-    $httpBackend.post('api/student',{dateOfBirth: 10});
-    expect(10).toEqual(scope.sortByDob())
-  })
 });
