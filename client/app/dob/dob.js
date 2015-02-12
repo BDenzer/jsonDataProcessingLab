@@ -7,7 +7,7 @@ angular.module('jsonDataProcessingLabApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('dob', {
-        url: '/',
+        url: '/dob',
         templateUrl: 'app/dob/dob.html',
         controller: 'dobCtrl'
       });
