@@ -6,19 +6,21 @@ angular.module('jsonDataProcessingLabApp')
 
     var Student = require('./student.model');
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+    $scope.studentsInfo = [];
+
+    $http.get('/api/students').success(function(studentsInfo) {
+      $scope.studentsInfo = studentsInfo;
+      socket.syncUpdates('student', $scope.studentsInfo);
     });
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('student');
     });
 
     $scope.sortByFullName = function() {
-      var fullName =[];
-      fullName = Student.schema.name;
-      console.log(fullName);
+      var fullName = [];
+      fullName = $scope.studentsInfo;
+      console.log("hi");
       var result =[];
       result = fullName.sort();
       console.log(result);
