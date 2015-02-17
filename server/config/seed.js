@@ -5,13 +5,6 @@
 
 'use strict';
 
-/**
- * Populate DB with sample data on server start
- * to disable, edit config/environment/index.js, and set `seedDB: false`
- */
-
-'use strict';
-
 var Student = require('../api/student/student.model');
 
 Student.find({}).remove(function() {
