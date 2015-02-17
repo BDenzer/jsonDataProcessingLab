@@ -23,9 +23,12 @@ angular.module('jsonDataProcessingLabApp')
       fullName = $scope.studentsInfo;
       var result =[];
       result = fullName.sort();
-      result = fullName.sort();
       console.log(result);
-      return result;
+      if($scope.studentsInfo.length > 0) {
+        console.log($scope.studentsInfo[0].firstName + "");
+      } else {
+        console.log("waiting for data");
+      }
     };
 
     var sortedFullNameList = $scope.sortByFullName();

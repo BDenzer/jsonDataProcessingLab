@@ -6,7 +6,15 @@ var mongoose = require('mongoose'),
 var StudentSchema = new Schema({
   name: String,
   info: String,
-  active: Boolean
+  active: Boolean,
+  firstName: String,
+  lastName: String,
+  dateOfBirth: String,
+  gender: String,
+  email: String,
+  phone: String,
+  address: String,
+  courses: String
 });
 
 module.exports = mongoose.model('Student', StudentSchema);
