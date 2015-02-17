@@ -19,20 +19,25 @@ angular.module('jsonDataProcessingLabApp')
     });
 
     $scope.sortByFullName = function() {
+      var firstName = [];
+      var lastName= [];
       var fullName = [];
-      fullName = $scope.studentsInfo;
+      for (var i = 0; i < $scope.studentsInfo.length; i++) {
+        fullName.push($scope.studentsInfo[i].firstName);
+      }
       var result =[];
       result = fullName.sort();
-      console.log(result);
-      if($scope.studentsInfo.length > 0) {
-        console.log($scope.studentsInfo[0].firstName + "");
-      } else {
-        console.log("waiting for data");
-      }
+      //console.log(result);
+      //if($scope.studentsInfo.length > 0) {
+      //  console.log($scope.studentsInfo[0].firstName + "");
+      //} else {
+      //  console.log("waiting for data");
+      //}
+      return result;
     };
 
-    var sortedFullNameList = $scope.sortByFullName();
-    $scope.sortedFullName= [];
-    $scope.sortedFullName = sortedFullNameList;
+    //var sortedFullNameList = $scope.sortByFullName();
+    //$scope.sortedFullName= [];
+    //$scope.sortedFullName = sortedFullNameList;
 });
 
