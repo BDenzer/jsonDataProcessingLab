@@ -4,8 +4,6 @@ angular.module('jsonDataProcessingLabApp')
   .controller('SortFullNameCtrl', function ($scope, $http, socket) {
     $scope.message = 'Hello';
 
-  console.log("H");
-
 
     $scope.studentsInfo = [];
 
@@ -22,8 +20,8 @@ angular.module('jsonDataProcessingLabApp')
       var firstName = [];
       var lastName= [];
       var fullName = [];
-      for (var i = 0; i < $scope.studentsInfo.length; i++) {
-        fullName.push($scope.studentsInfo[i].firstName);
+      for (var i = 0; i < $scope.studentsInfo.length-1; i++) {
+        fullName.push($scope.studentsInfo[i].lastName + ", " + $scope.studentsInfo[i].firstName);
       }
       var result =[];
       result = fullName.sort();
@@ -33,6 +31,8 @@ angular.module('jsonDataProcessingLabApp')
       //} else {
       //  console.log("waiting for data");
       //}
+      $http.post('/api/students', { name: result });
+      result = '';
       return result;
     };
 
