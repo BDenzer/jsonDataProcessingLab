@@ -1,14 +1,18 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="SortFullNameCtrl">
+<div class = "SortFullNameCtrl">
+<!--<div class="col-md-12">-->
   <ul>
-    <li>
-      <form ng-submit="sortByFullName()">
+    <!--<li>-->
+      <!--<form accept-charset="UTF-8">-->
 
-      <input type="submit" value="Sort by full name" class="btn btn-primary">
+      <!--<input type="submit" value="Sort by full name" class="btn btn-primary">-->
 
-      </form>
-    </li>
+      <!--</form>-->
+      <!--&lt;!&ndash;<span>{{sortByFullName()}}</span>&ndash;&gt;-->
+    <!--</li>-->
 
-    <li ng-repeat="test in sortedFullName">{{sortByFullName()}}</li>
+    <li ng-repeat="student in studentsInfo">{{student.firstName}},{{student.lastName}}</li>
   </ul>
+  <!--<p>{{studentsInfo}}</p>-->
 </div>
+

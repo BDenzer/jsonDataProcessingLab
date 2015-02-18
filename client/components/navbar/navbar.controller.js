@@ -3,10 +3,11 @@
 angular.module('jsonDataProcessingLabApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
+      //When adding pages to the NavBar make sure that it looks like the following
       'title': 'Home',
       'link': '/',
       'FindStudentByNames':'Find Student By Name',
-      'linkForFindStudentByNames':'http://localhost:63342/jsonDataProcessingLab/client/app/sortFullName/sortFullName.html'
+      'linkForFindStudentByNames':'/sortFullName'
     }];
 
     $scope.isCollapsed = true;
