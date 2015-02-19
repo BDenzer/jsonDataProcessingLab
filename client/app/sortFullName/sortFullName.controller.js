@@ -2,8 +2,6 @@
 
 angular.module('jsonDataProcessingLabApp')
   .controller('SortFullNameCtrl', function ($scope, $http, socket) {
-    $scope.message = 'Hello';
-
 
     $scope.studentsInfo = [];
 

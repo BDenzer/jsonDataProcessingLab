@@ -7,7 +7,11 @@ angular.module('jsonDataProcessingLabApp')
       'title': 'Home',
       'link': '/',
       'FindStudentByNames':'Find Student By Name',
-      'linkForFindStudentByNames':'/sortFullName'
+      'linkForFindStudentByNames':'/sortFullName',
+      'SortByMajor': 'Find Student By Major',
+      'linkForSortByMajor': '/sortByMajor',
+      'linkForDOB': '/dob',
+      'FindDOB': 'Find Student By Date of Birth'
     }];
 
     $scope.isCollapsed = true;
