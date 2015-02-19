@@ -13,9 +13,13 @@ angular.module('jsonDataProcessingLabApp')
     $scope.sortByDob = function(){
         var dob = [];
         for (var i = 0; i < $scope.studentsInfo.length; i++){
-            dob.push(Date.parse($scope.studentsInfo[i].dateOfBirth))
+            dob.push(($scope.studentsInfo[i].dateOfBirth))
         }
+
         dob = dob.sort();
         return dob;
+
+        //return $scope.studentsInfo.dateOfBirth.sort();
+
     };
     });
