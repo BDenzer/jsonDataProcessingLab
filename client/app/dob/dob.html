@@ -1,3 +1,6 @@
+
+
+
 <div class="col-md-12">
-{{sortByDob()}}
+<option value="{{students.id}}" ng-repeat="student in studentsInfo | orderBy:'dateOfBirth'"> {{student.dateOfBirth}} {{student.firstName}} {{student.lastName}}</option>
 </div>
