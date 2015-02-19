@@ -8,8 +8,6 @@ angular.module('jsonDataProcessingLabApp')
       'link': '/',
       'FindStudentByNames':'Find Student By Name',
       'linkForFindStudentByNames':'/sortFullName',
-      'SortByMajor': 'Find Student By Major',
-      'linkForSortByMajor': '/sortByMajor',
       'linkForDOB': '/dob',
       'FindDOB': 'Find Student By Date of Birth'
     }];
