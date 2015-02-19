@@ -14,9 +14,9 @@ var StudentSchema = new Schema({
   email: String,
   phone: String,
   address: String,
-  courses: [],
   major1: String,
-  major2: String
+  major2: String,
+  courses: []
 });
 
 module.exports = mongoose.model('Student', StudentSchema);
