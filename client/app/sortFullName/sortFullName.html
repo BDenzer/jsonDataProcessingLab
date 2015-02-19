@@ -1,18 +1,33 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class = "SortFullNameCtrl">
-<!--<div class="col-md-12">-->
+
   <ul>
-    <!--<li>-->
-      <!--<form accept-charset="UTF-8">-->
+    <button ng-click="displayLastNames()">Sort by Last Name</button>
+    <button ng-click="displayFirstNames()">Sort by First Name</button>
+     <table ng-hide="myVar" border="1" style="width:45%">
+       <tr>
+         <th>Last Name</th>
+         <th>First Name</th>
+       </tr>
+      <tr ng-repeat="student in studentsInfo | orderBy : 'lastName'">
+        <td>{{ student.lastName}}</td>
+        <td>{{ student.firstName }}</td>
+      </tr>
+    </table>
 
-      <!--<input type="submit" value="Sort by full name" class="btn btn-primary">-->
 
-      <!--</form>-->
-      <!--&lt;!&ndash;<span>{{sortByFullName()}}</span>&ndash;&gt;-->
-    <!--</li>-->
+     <table ng-hide="myVar2" border="1" style="width:45%">
+       <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+       </tr>
+       <tr ng-repeat="student in studentsInfo | orderBy : 'firstName'">
+         <td>{{ student.firstName}}</td>
+         <td>{{ student.lastName }}</td>
+       </tr>
+     </table>
 
-    <li ng-repeat="student in studentsInfo">{{student.firstName}},{{student.lastName}}</li>
   </ul>
-  <!--<p>{{studentsInfo}}</p>-->
+
 </div>
 
