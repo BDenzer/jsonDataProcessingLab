@@ -1,6 +1,7 @@
-
+<div ng-include="'components/navbar/navbar.html'"></div>
 
 
 <div class="col-md-12">
-<option value="{{students.id}}" ng-repeat="student in studentsInfo | orderBy:'dateOfBirth'"> {{student.dateOfBirth}} {{student.firstName}} {{student.lastName}}</option>
+<option value="{{}}" ng-repeat="student in studentsInfo | orderBy:'dateOfBirth'"> {{student.dateOfBirth}} - {{student.lastName}}, {{student.firstName}}</option>
 </div>
+

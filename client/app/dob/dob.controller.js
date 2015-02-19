@@ -10,5 +10,4 @@ angular.module('jsonDataProcessingLabApp')
         $scope.studentsInfo = studentsInfo;
         socket.syncUpdates('student', $scope.studentsInfo);
     });
-
     });
