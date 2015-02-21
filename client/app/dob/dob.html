@@ -4,16 +4,19 @@
     <button ng-click="displayLastNames()">Sort by Last Name</button>
     <button ng-click="displayFirstNames()">Sort by First Name</button>
     <button ng-click="displayDOB()">Sort by Date of Birth</button>
+    <button ng-click="displayCreditsCompleted()">Sort by Credits Completed</button>
     <table ng-hide="myVar" border="1" style="width:45%">
       <tr>
         <th>Last Name</th>
         <th>First Name</th>
         <th>Date of Birth</th>
+        <th>Credits</th>
       </tr>
       <tr ng-repeat="student in studentsInfo | orderBy : 'lastName'">
         <td>{{ student.lastName}}</td>
         <td>{{ student.firstName }}</td>
         <td>{{ student.dateOfBirth }}</td>
+        <td>{{ student.credits }}</td>
       </tr>
     </table>
 
@@ -23,11 +26,13 @@
         <th>Last Name</th>
         <th>First Name</th>
         <th>Date of Birth</th>
+        <th>Credits</th>
       </tr>
       <tr ng-repeat="student in studentsInfo | orderBy : 'firstName'">
         <td>{{ student.lastName }}</td>
         <td>{{ student.firstName}}</td>
         <td>{{ student.dateOfBirth }}</td>
+        <td>{{ student.credits }}</td>
       </tr>
     </table>
 
@@ -36,11 +41,28 @@
         <th>Last Name</th>
         <th>First Name</th>
         <th>Date of Birth</th>
+        <th>Credits</th>
       </tr>
       <tr ng-repeat="student in studentsInfo | orderBy : 'dateOfBirth'">
         <td>{{ student.lastName }}</td>
         <td>{{ student.firstName}}</td>
         <td>{{ student.dateOfBirth }}</td>
+        <td>{{ student.credits }}</td>
+      </tr>
+    </table>
+
+    <table ng-hide="creditBool" border="1" style="width:45%">
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Date of Birth</th>
+        <th>Credits</th>
+      </tr>
+      <tr ng-repeat="student in studentsInfo | orderBy : 'dateOfBirth'">
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.firstName}}</td>
+        <td>{{ student.dateOfBirth }}</td>
+        <td>{{ totalCredits()}}</td>
       </tr>
     </table>
 

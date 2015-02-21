@@ -14,35 +14,49 @@ angular.module('jsonDataProcessingLabApp')
     $scope.myVar = true;
     $scope.myVar2 = true;
     $scope.hideDOB = true;
+    $scope.creditBool = true;
 
+    $scope.hideTable = function(tableBool) {
+      if (tableBool == false) {
+        tableBool = !tableBool;
+      }
+      return tableBool
+    };
     $scope.displayLastNames = function() {
       $scope.myVar = !$scope.myVar;
-      if ($scope.myVar2 == false) {
-        $scope.myVar2 = !$scope.myVar2;
-        $scope.hideDOB = !$scope.hideDOB;
-      }
-      if($scope.hideDOB == false){
-        $scope.hideDOB = !$scope.hideDOB;
-      }
+      $scope.hideTable($scope.myVar2);
+      $scope.hideTable($scope.hideDOB);
+      $scope.hideTable($scope.creditBool);
     };
 
     $scope.displayFirstNames = function() {
       $scope.myVar2 = !$scope.myVar2;
-      if ($scope.myVar == false) {
-        $scope.myVar = !$scope.myVar;
-      }
-      if( $scope.hideDOB == false){
-        $scope.hideDOB = !$scope.hideDOB;
-      }
+      $scope.hideTable($scope.myVar);
+      $scope.hideTable($scope.hideDOB);
+      $scope.hideTable($scope.creditBool);
     };
 
     $scope.displayDOB = function() {
       $scope.hideDOB = !$scope.hideDOB;
-      if ($scope.myVar == false) {
-        $scope.myVar = !$scope.myVar;
-      }
-      if( $scope.myVar2 == false){
-        $scope.myVar2 = !$scope.myVar2;
-      }
+      $scope.hideTable($scope.myVar);
+      $scope.hideTable($scope.myVar2);
+      $scope.hideTable($scope.creditBool);
     };
+    $scope.displayCreditsCompleted = function() {
+      $scope.creditBool = !$scope.creditBool;
+      $scope.hideTable($scope.myVar);
+      $scope.hideTable($scope.myVar2);
+      $scope.hideTable($scope.hideDOB);
+    };
+
+
+    $scope.totalCredits = function() {
+      var totalCredits = 0;
+      for(var i = 0; i < student.courses.length; i++) {
+        totalCredits = totalCredits + student.courses[i].credits;
+      }
+      return totalCredits
+    };
+
+
     });
