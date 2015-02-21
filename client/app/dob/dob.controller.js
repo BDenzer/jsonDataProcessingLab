@@ -8,9 +8,9 @@ angular.module('jsonDataProcessingLabApp')
 
     $scope.student = $scope.studentsInfo[0];
 
-    $http.get('/api/students').success(function(studentsInfo) {
-        $scope.studentsInfo = studentsInfo;
-        socket.syncUpdates('student', $scope.studentsInfo);
+    $http.get('/api/students').success(function (studentsInfo) {
+      $scope.studentsInfo = studentsInfo;
+      socket.syncUpdates('student', $scope.studentsInfo);
     });
 
     $scope.myVar = true;
@@ -18,8 +18,18 @@ angular.module('jsonDataProcessingLabApp')
     $scope.hideDOB = true;
     $scope.creditBool = true;
 
-   /* $scope.hideTable = function(tableBool) {
-      tableBool = true;
+   /* $scope.booleanArray = [
+      $scope.myVar,
+      $scope.myVar2,
+      $scope.hideDOB,
+      $scope.creditBool
+    ];*/
+
+   /* $scope.hideTables = function() {
+      for (var i = 0; i < booleanArray.length; i ++) {
+        $scope.booleanArray[i] = true;
+      }
+      showTable = !showTable;
     };*/
     $scope.displayLastNames = function() {
       $scope.myVar = !$scope.myVar;
@@ -47,14 +57,33 @@ angular.module('jsonDataProcessingLabApp')
     };
 
 
+//Don't have to worry about grade points
+   /* $scope.getCredits = function(credit) {
+      var grade = $scope.studentsInfo.courses.course.grade;
+      var credits = 0;
+      if(grade == "A"){
+        credits = credit * 1;
+      }
+      else if(grade == "B") {
+        credits =
+      }
+    };*/
+
+    $scope.isCompleted = function() {
+      if ($scope.studentsInfo.courses.course.grade == "IP") {
+        return false;
+      }
+    };
+
     $scope.totalCredits = function() {
       var totalCredits = 0;
       for(var i = 0; i < $scope.student.courses.length; i++) {
-        totalCredits = totalCredits + $scope.student.courses[i].credits;
+        if($scope.isCompleted()) {
+          totalCredits = totalCredits + $scope.student.courses[i].credits;
+        }
       }
       return totalCredits
     };
-
 
 
     });
