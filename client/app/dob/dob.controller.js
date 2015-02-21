@@ -11,14 +11,14 @@ angular.module('jsonDataProcessingLabApp')
         socket.syncUpdates('student', $scope.studentsInfo);
     });
 
-    $scope.myVar = true;
-    $scope.myVar2 = true;
+    $scope.lastNameSort = true;
+    $scope.firstNameSort = true;
     $scope.hideDOB = true;
 
-    $scope.displayLastNames = function() {
-      $scope.myVar = !$scope.myVar;
-      if ($scope.myVar2 == false) {
-        $scope.myVar2 = !$scope.myVar2;
+    $scope.displayLastNameTable = function() {
+      $scope.lastNameSort = !$scope.lastNameSort;
+      if ($scope.firstNameSort == false) {
+        $scope.firstNameSort = !$scope.firstNameSort;
         $scope.hideDOB = !$scope.hideDOB;
       }
       if($scope.hideDOB == false){
@@ -26,10 +26,10 @@ angular.module('jsonDataProcessingLabApp')
       }
     };
 
-    $scope.displayFirstNames = function() {
-      $scope.myVar2 = !$scope.myVar2;
-      if ($scope.myVar == false) {
-        $scope.myVar = !$scope.myVar;
+    $scope.displayFirstNameTable = function() {
+      $scope.firstNameSort = !$scope.firstNameSort;
+      if ($scope.lastNameSort == false) {
+        $scope.lastNameSort = !$scope.lastNameSort;
       }
       if( $scope.hideDOB == false){
         $scope.hideDOB = !$scope.hideDOB;
@@ -38,11 +38,11 @@ angular.module('jsonDataProcessingLabApp')
 
     $scope.displayDOB = function() {
       $scope.hideDOB = !$scope.hideDOB;
-      if ($scope.myVar == false) {
-        $scope.myVar = !$scope.myVar;
+      if ($scope.lastNameSort == false) {
+        $scope.lastNameSort = !$scope.lastNameSort;
       }
-      if( $scope.myVar2 == false){
-        $scope.myVar2 = !$scope.myVar2;
+      if( $scope.firstNameSort == false){
+        $scope.firstNameSort = !$scope.firstNameSort;
       }
     };
     });

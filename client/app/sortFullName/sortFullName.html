@@ -2,9 +2,11 @@
 <div class = "SortFullNameCtrl">
 
   <ul>
-    <button ng-click="displayLastNames()">Sort by Last Name</button>
-    <button ng-click="displayFirstNames()">Sort by First Name</button>
-     <table ng-hide="myVar" border="1" style="width:45%">
+    <button ng-click="displayLastNameTable()">Sort by Last Name</button>
+    <button ng-click="displayFirstNameTable()">Sort by First Name</button>
+    <button ng-click="displayMajorTable()">Sort by Majors</button>
+
+     <table ng-hide="lastNameSort" border="1" style="width:45%">
        <tr>
          <th>Last Name</th>
          <th>First Name</th>
@@ -12,13 +14,11 @@
       <tr ng-repeat="student in studentsInfo | orderBy : 'lastName'">
         <td>{{ student.lastName}}</td>
         <td>{{ student.firstName }}</td>
-        <td>{{student.major1}}</td>
-        <td>{{student.major2}}</td>
-      </tr>
+        </tr>
     </table>
 
 
-     <table ng-hide="myVar2" border="1" style="width:45%">
+    <table ng-hide="firstNameSort" border="1" style="width:45%">
        <tr>
          <th>First Name</th>
          <th>Last Name</th>
@@ -27,7 +27,37 @@
          <td>{{ student.firstName}}</td>
          <td>{{ student.lastName }}</td>
        </tr>
-     </table>
+    </table>
+
+    <!--<form action="{{displayMajorTable()}}">-->
+      <!--<select major="major">-->
+        <!--<option>Choose Major</option>-->
+        <!--<option value="csci">CSCI</option>-->
+        <!--<option value="English">English</option>-->
+        <!--<option value="French">French</option>-->
+        <!--<option value="Math">Math</option>-->
+        <!--<option value="Poly Sci">Poly Sci</option>-->
+        <!--<option value="Studio Art">Studio Art</option>-->
+      <!--</select>-->
+      <!--<br><br>-->
+      <!--<input type="submit">-->
+    <!--</form>-->
+
+    <table ng-hide="majorSort" border="1" style="width:45%">
+
+      <tr>
+        <th>Major 1</th>
+        <th>Major 2</th>
+        <th>Students' Full Name</th>
+
+      </tr>
+      <tr ng-repeat="student in studentsInfo | orderBy : 'major1' ">
+        <td>{{student.major1}}</td>
+        <td>{{student.major2}}</td>
+        <td>{{student.firstName }}, {{student.lastName}}</td>
+      </tr>
+
+    </table>
 
   </ul>
 
