@@ -20,6 +20,10 @@ angular.module('jsonDataProcessingLabApp')
       };
 
     $scope.showCourses = function(student){
-      $scope.allCourses = JSON.stringify(student.courses);
+      document.getElementById("coursesInfo").innerHTML = "";
+      for(var i = 0; i < student.courses.length; i++) {
+        document.getElementById("coursesInfo").innerHTML =  document.getElementById("coursesInfo").innerHTML +  "Course Name: " + student.courses[i].course.name + "       Grade: " + student.courses[i].grade + "<br/>";
+      }
+      document.getElementById("coursesInfo").innerHTML =  student.firstName + " "+ student.lastName + "<br/>" +  document.getElementById("coursesInfo").innerHTML
     };
   });
