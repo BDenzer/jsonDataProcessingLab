@@ -6,7 +6,7 @@ angular.module('jsonDataProcessingLabApp')
 
     $scope.studentsInfo = [];
 
-    $scope.student = $scope.studentsInfo[0];
+    //$scope.student = $scope.studentsInfo[0];
 
     $http.get('/api/students').success(function (studentsInfo) {
       $scope.studentsInfo = studentsInfo;
@@ -69,20 +69,25 @@ angular.module('jsonDataProcessingLabApp')
       }
     };*/
 
-    $scope.isCompleted = function() {
-      if ($scope.studentsInfo.courses.course.grade == "IP") {
+    /*$scope.isCompleted = function() {
+      if ($scope.studentsInfo[$scope.student].courses[0].course.grade == "IP") {
         return false;
+      } else{
+        return true;
       }
-    };
+    };*/
 
-    $scope.totalCredits = function() {
+
+    $scope.totalCredits = function(student) {
       var totalCredits = 0;
-      for(var i = 0; i < $scope.student.courses.length; i++) {
-        if($scope.isCompleted()) {
-          totalCredits = totalCredits + $scope.student.courses[i].credits;
+      for(var i = 0; i < student.courses.length; i++) {
+        if(student.courses[i].course.grade != "IP") {
+          totalCredits = totalCredits + student.courses[i].course.credits;
+          //console.log(student.courses[i].course.name)
         }
       }
-      return totalCredits
+      //$scope.studentIndex++;
+      return totalCredits;
     };
 
 
