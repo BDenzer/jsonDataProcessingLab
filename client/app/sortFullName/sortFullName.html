@@ -5,6 +5,8 @@
     <button ng-click="displayLastNameTable()">Sort by Last Name</button>
     <button ng-click="displayFirstNameTable()">Sort by First Name</button>
     <button ng-click="displayMajorTable()">Sort by Majors</button>
+    <button ng-click="displayCourseTable()">Sort by Courses</button>
+    <!--==============================================================================================-->
 
      <table ng-hide="lastNameSort" border="1" style="width:45%">
        <tr>
@@ -42,6 +44,8 @@
       <!--<br><br>-->
       <!--<input type="submit">-->
     <!--</form>-->
+    <!--==============================================================================================-->
+
 
     <table ng-hide="majorSort" border="1" style="width:45%">
 
@@ -59,6 +63,30 @@
 
     </table>
 
+<!--==============================================================================================-->
+
+    <table ng-hide="courseSort" border="1" style="width:45%">
+
+      <tr>
+        <th>Course Name</th>
+        <th>Subject</th>
+        <th>Course Number</th>
+        <th>Course Status</th>
+        <th>Students' Full Name</th>
+
+      </tr>
+      <!--<tr ng-repeat="student in studentsInfo | orderBy : 'courses.course' ">-->
+      <tr ng-repeat="student in studentsInfo">
+
+      <td>{{student.courses.course}}</td>
+        <td>{{student.courses.subject}}</td>
+        <td>{{student.courses.courseNumber}}</td>
+        <td></td>
+        <td>{{student.firstName }}, {{student.lastName}}</td>
+      </tr>
+
+
+    </table>
   </ul>
 
 </div>

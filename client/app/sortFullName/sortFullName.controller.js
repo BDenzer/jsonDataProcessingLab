@@ -3,6 +3,8 @@
 angular.module('jsonDataProcessingLabApp')
   .controller('SortFullNameCtrl', function ($scope, $http, socket) {
 
+
+
     $scope.studentsInfo = [];
 
     $http.get('/api/students').success(function(studentsInfo) {
@@ -15,10 +17,13 @@ angular.module('jsonDataProcessingLabApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('student');
     });
+    <!--==============================================================================================-->
 
     $scope.lastNameSort = true;
     $scope.firstNameSort = true;
     $scope.majorSort = true;
+    $scope.courseSort = true;
+
 
    $scope.displayLastNameTable = function() {
      $scope.lastNameSort = false;
@@ -27,6 +32,9 @@ angular.module('jsonDataProcessingLabApp')
      }
      else if ($scope.majorSort == false) {
        $scope.majorSort = true;
+     }
+     else if ($scope.courseSort == false) {
+       $scope.courseSort = true;
      }
 
    };
@@ -39,8 +47,12 @@ angular.module('jsonDataProcessingLabApp')
       else if ($scope.majorSort == false) {
         $scope.majorSort = true;
       }
+      else if ($scope.courseSort == false) {
+        $scope.courseSort = true;
+      }
 
     };
+    <!--==============================================================================================-->
 
     $scope.displayMajorTable = function() {
 
@@ -51,6 +63,9 @@ angular.module('jsonDataProcessingLabApp')
       }
       else if ($scope.lastNameSort == false) {
         $scope.lastNameSort = true;
+      }
+      else if ($scope.courseSort == false) {
+        $scope.courseSort = true;
       }
       $scope.checkMajor();
     };
@@ -83,5 +98,34 @@ angular.module('jsonDataProcessingLabApp')
       }
 
     };
+    <!--==============================================================================================-->
+
+    $scope.displayCourseTable = function(){
+      $scope.courseSort = false;
+
+
+      if ($scope.firstNameSort == false) {
+        $scope.firstNameSort = true;
+      }
+      else if ($scope.lastNameSort == false) {
+        $scope.lastNameSort = true;
+      }
+      else if ($scope.majorSort == false) {
+        $scope.majorSort = true;
+      }
+      
+      $scope.SearchByCourse();
+
+    };
+
+    //console.log($scope.studentsInfo[1].courses[0]);
+
+    $scope.SearchByCourse = function(){
+      for (var i = 0; i < $scope.studentsInfo.length; i++) {
+        console.log($scope.studentsInfo[i].courses[0].course.name);
+        console.log("Hello");
+      }
+    }
+
 
 });
