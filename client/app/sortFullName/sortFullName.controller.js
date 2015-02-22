@@ -118,7 +118,7 @@ angular.module('jsonDataProcessingLabApp')
 
     };
 
-    console.log($scope.studentsInfo[1].courses[0]);
+    //console.log($scope.studentsInfo[1].courses[0]);
 
     $scope.AllCourses = function(){
       var courseList =[];
@@ -169,11 +169,6 @@ angular.module('jsonDataProcessingLabApp')
         }
       }
       return statues;
-    };
-
-
-    //var options = {
-    //  valueNames : ['courseName']
-    //}
+    }
 
 });

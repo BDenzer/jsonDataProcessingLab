@@ -5,8 +5,6 @@
     <button ng-click="displayLastNameTable()">Sort by Last Name</button>
     <button ng-click="displayFirstNameTable()">Sort by First Name</button>
     <button ng-click="displayMajorTable()">Sort by Majors</button>
-    <!--<button ng-click="displayCourseTable()" class="sort" data-sort = "courses">Sort by Course</button>-->
-    <!--==============================================================================================-->
 
      <table ng-hide="lastNameSort" border="1" style="width:45%">
        <tr>
@@ -44,8 +42,6 @@
       <!--<br><br>-->
       <!--<input type="submit">-->
     <!--</form>-->
-    <!--==============================================================================================-->
-
 
     <table ng-hide="majorSort" border="1" style="width:45%">
 
@@ -63,46 +59,7 @@
 
     </table>
 
-<!--==============================================================================================-->
-
-    <table ng-hide="courseSort" border="1" style="width:45%">
-
-      <tr>
-        <th>Course Name</th>
-        <th>Subject</th>
-        <th>Course Number</th>
-        <th>Course Status</th>
-        <th>Students' Full Name</th>
-
-      </tr>
-      <!--<tr ng-repeat="student in studentsInfo | orderBy : 'courses' ">-->
-      <tr ng-repeat="student in studentsInfo.courses">
-         <tr ng-repeat="courses in student | orderBy : 'name'">
-
-      <td>{{student.courses.course.name}}</td>
-        <td>{{student.courses.course.subject}}</td>
-        <td>{{student.courses.course.courseNumber}}</td>
-        <td>{{courseStatues(student)}}</td>
-        <td>{{student.firstName }}, {{student.lastName}}</td>
-        </tr>
-      </tr>
-
-
-    </table>
   </ul>
-  <!--<ul>-->
-    <!--<button ng-click="displayCourseTable()" class="sort" data-sort = "courseName">Sort by Courses</button>-->
-    <!--<li ng-hide="courseSort">-->
-        <!--<li ng-repeat="stuent in studentsInfo">-->
-          <!--<h5 class = "courseName">{{courses.course.name}}</h5>-->
-       <!--</li>-->
-      <!--<li ng-repeat="student in studentsInfo">-->
-        <!--<h5 class = "lastName">{{student.lastName}}</h5>-->
-      <!--</li>-->
-      <!--<li ng-repeat="student in studentsInfo">-->
-        <!--<h5 class = "firstName">{{student.firstName}}</h5>-->
-      <!--</li>-->
-    <!--</li>-->
-<!--</ul>-->
+
 </div>
 
