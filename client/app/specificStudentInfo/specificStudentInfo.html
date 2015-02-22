@@ -1,0 +1,16 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div data-ng-app="market">
+
+    <table>
+      <tr data-ng-repeat="student in studentsInfo">
+        <td data-ng-bind="student.firstName"></td>
+        <td><a href="#" data-ng-click="showdetails(student)">Details</a></td>
+      </tr>
+    </table>
+
+    <div data-ng-bind="selected">
+
+    </div>
+  </div>
+
