@@ -95,6 +95,53 @@
       </tr>
     </table>
 
+
+
   </ul>
+
+</div>
+
+<ul>
+    <button ng-click="toSort = 'lastName'; order = !order">Sort by Last Name</button>
+    <button ng-click="toSort = 'firstName'; order = !order">Sort by First Name</button>
+    <button ng-click="toSort = 'dateOfBirth'; order = !order">Sort by Date of Birth</button>
+    <button ng-click="toSort = ">Sort by Credits Completed</button>
+    <button ng-click="toSort = ">Sort by GPA</button>
+    <table class="table-condensed" border="1" style="width:45%">
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Date of Birth</th>
+            <th>Credits</th>
+            <th>GPA</th>
+
+        </tr>
+        <tr ng-repeat="student in studentsInfo | orderBy : toSort : order">
+            <td>{{ student.lastName}}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.dateOfBirth }}</td>
+            <td>{{ totalCredits(student) }}</td>
+            <td>{{GPA(student)}}</td>
+        </tr>
+    </table>
+
+    <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
+    <hr/>
+    [ <a href="" ng-click="predicate=''">unsorted</a> ]
+    <table class="friend">
+        <tr>
+            <th><a href="" ng-click="predicate = 'name'; reverse=false">Name</a>
+                (<a href="" ng-click="predicate = '-name'; reverse=false">^</a>)</th>
+            <th><a href="" ng-click="predicate = 'phone'; reverse=!reverse">Phone Number</a></th>
+            <th><a href="" ng-click="predicate = 'age'; reverse=!reverse">Age</a></th>
+        </tr>
+        <tr ng-repeat="friend in friends | orderBy:predicate:reverse">
+            <td>{{friend.name}}</td>
+            <td>{{friend.phone}}</td>
+            <td>{{friend.age}}</td>
+        </tr>
+    </table>
+
+</ul>
 
 </div>
