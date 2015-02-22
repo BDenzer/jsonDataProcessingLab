@@ -6,11 +6,15 @@
       <tr data-ng-repeat="student in studentsInfo">
         <td data-ng-bind="student.firstName"></td>
         <td><a href="#" data-ng-click="showdetails(student)">Details</a></td>
+        <td><a href="#" data-ng-click="showCourses(student)">Courses Taken</a></td>
+
       </tr>
     </table>
 
-    <div data-ng-bind="selected">
+    <div data-ng-bind="selected">    </div>
+    <div data-ng-bind="allCourses">    </div>
 
-    </div>
-  </div>
+
+
+</div>
 
