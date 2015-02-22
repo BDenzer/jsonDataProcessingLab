@@ -95,6 +95,37 @@
       </tr>
     </table>
 
+
+
   </ul>
+
+</div>
+
+<ul>
+    <button ng-click="toSort = 'lastName'; order = !order">Sort by Last Name</button>
+    <button ng-click="toSort = 'firstName'; order = !order">Sort by First Name</button>
+    <button ng-click="toSort = 'dateOfBirth'; order = !order">Sort by Date of Birth</button>
+    <button ng-click="sortByCredits(); order = !order">Sort by Credits Completed</button>
+    <button ng-click="sortByGpa(); order = !order">Sort by GPA</button>
+    <table class="table-condensed" border="1" style="width:45%">
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Date of Birth</th>
+            <th>Credits</th>
+            <th>GPA</th>
+
+        </tr>
+        <tr ng-repeat="student in studentsInfo | orderBy:toSort:order">
+            <td>{{student.lastName}}</td>
+            <td>{{student.firstName }}</td>
+            <td>{{student.dateOfBirth }}</td>
+            <td>{{totalCredits(student) }}</td>
+            <td>{{GPA(student)}}</td>
+        </tr>
+    </table>
+
+
+</ul>
 
 </div>

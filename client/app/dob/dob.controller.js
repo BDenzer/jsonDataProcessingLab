@@ -19,6 +19,11 @@ angular.module('jsonDataProcessingLabApp')
     $scope.creditBool = true;
     $scope.gpaBool = true;
 
+    $scope.toSort = "lastName";
+    $scope.order = true;
+
+
+
    /* $scope.booleanArray = [
       $scope.myVar,
       $scope.myVar2,
@@ -133,7 +138,19 @@ angular.module('jsonDataProcessingLabApp')
           //console.log(student.courses[i].course.name)
         }
       }
-      return gpaNumerator/totalCredits;
+      return (gpaNumerator/totalCredits).toFixed(3);
+    };
+
+    $scope.sortByCredits = function(){
+        $scope.toSort = function(student){
+            return $scope.totalCredits(student);
+        };
+    };
+
+    $scope.sortByGpa = function(){
+        $scope.toSort = function(student){
+            return $scope.GPA(student);
+        };
     };
 
 
