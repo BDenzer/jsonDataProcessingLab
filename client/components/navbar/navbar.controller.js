@@ -6,12 +6,13 @@ angular.module('jsonDataProcessingLabApp')
       //When adding pages to the NavBar make sure that it looks like the following
       'title': 'Home',
       'link': '/',
-      'FindStudentByNames':'Find Student By Name',
+      'FindStudentByNames':'List of Courses',
       'linkForFindStudentByNames':'/sortFullName',
       'linkForDOB': '/dob',
-      'FindDOB': 'Find Student By Date of Birth',
+      'FindDOB': 'List of Students',
       'FindspecificStudentInfo':'Get information on specific students',
-      'linkForspecificStudentInfo':'/specificStudentInfo'
+      'linkForspecificStudentInfo':'/specificStudentInfo',
+      'DetailedInfo':'Detailed Student Info'
     }];
 
     $scope.isCollapsed = true;

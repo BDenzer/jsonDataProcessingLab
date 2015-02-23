@@ -1,112 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-  <ul>
-    <button ng-click="displayLastNames()">Sort by Last Name</button>
-    <button ng-click="displayFirstNames()">Sort by First Name</button>
-    <button ng-click="displayDOB()">Sort by Date of Birth</button>
-    <button ng-click="displayCreditsCompleted()">Sort by Credits Completed</button>
-    <button ng-click="displayGPA()">Sort by GPA</button>
-    <table ng-hide="myVar" border="1" style="width:45%">
-      <tr>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>Date of Birth</th>
-        <th>Credits</th>
-        <th>GPA</th>
-
-      </tr>
-      <tr ng-repeat="student in studentsInfo | orderBy : 'lastName'">
-        <td>{{ student.lastName}}</td>
-        <td>{{ student.firstName }}</td>
-        <td>{{ student.dateOfBirth }}</td>
-        <td>{{ totalCredits(student) }}</td>
-        <td>{{GPA(student)}}</td>
-      </tr>
-    </table>
-
-
-    <table ng-hide="myVar2" border="1" style="width:45%">
-      <tr>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>Date of Birth</th>
-        <th>Credits</th>
-        <th>GPA</th>
-
-      </tr>
-      <tr ng-repeat="student in studentsInfo | orderBy : 'firstName'">
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.firstName}}</td>
-        <td>{{ student.dateOfBirth }}</td>
-        <td>{{ totalCredits(student) }}</td>
-        <td>{{GPA(student)}}</td>
-      </tr>
-    </table>
-
-    <table ng-hide="hideDOB" border="1" style="width:45%">
-      <tr>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>Date of Birth</th>
-        <th>Credits</th>
-        <th>GPA</th>
-
-      </tr>
-      <tr ng-repeat="student in studentsInfo | orderBy : 'dateOfBirth'">
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.firstName}}</td>
-        <td>{{ student.dateOfBirth }}</td>
-        <td>{{ totalCredits(student) }}</td>
-        <td>{{GPA(student)}}</td>
-      </tr>
-    </table>
-
-    <table ng-hide="creditBool" border="1" style="width:45%">
-      <tr>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>Date of Birth</th>
-        <th>Credits</th>
-        <th>GPA</th>
-      </tr>
-      <tr ng-repeat="student in studentsInfo | orderBy : 'dateOfBirth'">
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.firstName}}</td>
-        <td>{{ student.dateOfBirth }}</td>
-        <td>{{ totalCredits(student) }}</td>
-        <td>{{GPA(student)}}</td>
-      </tr>
-    </table>
-
-    <table ng-hide="gpaBool" border="1" style="width:45%">
-      <tr>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>Date of Birth</th>
-        <th>Credits</th>
-        <th>GPA</th>
-      </tr>
-      <tr ng-repeat="student in studentsInfo | orderBy : 'dateOfBirth'">
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.firstName}}</td>
-        <td>{{ student.dateOfBirth }}</td>
-        <td>{{ totalCredits(student) }}</td>
-        <td>{{GPA(student)}}</td>
-      </tr>
-    </table>
-
-
-
-  </ul>
-
-</div>
-
 <ul>
     <button ng-click="toSort = 'lastName'; order = !order">Sort by Last Name</button>
     <button ng-click="toSort = 'firstName'; order = !order">Sort by First Name</button>
     <button ng-click="toSort = 'dateOfBirth'; order = !order">Sort by Date of Birth</button>
     <button ng-click="sortByCredits(); order = !order">Sort by Credits Completed</button>
     <button ng-click="sortByGpa(); order = !order">Sort by GPA</button>
+    <button ng-click="toSort = 'major1'; order = !order"> Sort by First Major</button>
     <table class="table-condensed" border="1" style="width:45%">
         <tr>
             <th>Last Name</th>
@@ -114,6 +14,8 @@
             <th>Date of Birth</th>
             <th>Credits</th>
             <th>GPA</th>
+            <th>Major 1</th>
+            <th>Major 2</th>
 
         </tr>
         <tr ng-repeat="student in studentsInfo | orderBy:toSort:order">
@@ -122,10 +24,12 @@
             <td>{{student.dateOfBirth }}</td>
             <td>{{totalCredits(student) }}</td>
             <td>{{GPA(student)}}</td>
+            <td>Major 1: {{student.major1}}</td>
+            <td>Major 2: {{student.major2}}</td>
         </tr>
     </table>
-
 
 </ul>
 
 </div>
+

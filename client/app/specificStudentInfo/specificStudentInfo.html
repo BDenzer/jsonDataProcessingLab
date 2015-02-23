@@ -2,19 +2,38 @@
 
 <div data-ng-app="market">
 
-    <table>
-      <tr data-ng-repeat="student in studentsInfo">
-        <td data-ng-bind="student.firstName"></td>
-        <td><a href="#" data-ng-click="showdetails(student)">Details</a></td>
-        <td><a href="#" data-ng-click="showCourses(student)">Courses Taken</a></td>
+    Search: <input ng-model="searchText">
+    <div>
+        <table class="table-condensed" border="1" style="...">
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>E-Mail</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Major 1</th>
+                <th>Major 2</th>
+            </tr>
+            <tr ng-repeat="student in studentsInfo |filter:searchText">
+                <td>{{student.lastName}}</td>
+                <td>{{student.firstName}}</td>
+                <td>{{student.dateOfBirth}}</td>
+                <td>{{student.gender}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.phone}}</td>
+                <td>{{student.address}}</td>
+                <td>{{student.major1}}</td>
+                <td>{{student.major2}}</td>
+            </tr>
+        </table>
 
-      </tr>
-    </table>
-
-    <div data-ng-bind="selected">    </div>
-    <div data-ng-bind="allCourses">    </div>
 
 
+
+
+    </div>
 
 </div>
 
