@@ -15,11 +15,22 @@ angular.module('jsonDataProcessingLabApp')
 
 
 
-      $scope.showdetails = function(student_id){
-        $scope.selected = JSON.stringify(student_id);
+      $scope.showdetails = function(student){
+        document.getElementById("coursesInfo").innerHTML = "";
+        //document.getElementById("studentInfo").innerHTML = "";
+        document.getElementById("coursesInfo").innerHTML =  student.firstName + " "+ student.lastName + "<br/>"
+                                                            + "Date of Birth: " +  student.dateOfBirth + "<br/>"
+                                                            + "Gender: " +  student.gender + "<br/>"
+                                                            + "Email: " +  student.email + "<br/>"
+                                                            + "Phone: " +  student.phone + "<br/>"
+                                                            + "Address: " +  student.address + "<br/>";
       };
 
     $scope.showCourses = function(student){
-      $scope.allCourses = JSON.stringify(student.courses);
+      document.getElementById("coursesInfo").innerHTML = "";
+      for(var i = 0; i < student.courses.length; i++) {
+        document.getElementById("coursesInfo").innerHTML =  document.getElementById("coursesInfo").innerHTML +  "Course Name: " + student.courses[i].course.name + "       Grade: " + student.courses[i].grade + "<br/>";
+      }
+      document.getElementById("coursesInfo").innerHTML =  student.firstName + " "+ student.lastName + "<br/>" +  document.getElementById("coursesInfo").innerHTML
     };
   });
